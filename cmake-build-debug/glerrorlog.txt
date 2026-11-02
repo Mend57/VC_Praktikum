@@ -1,0 +1,4 @@
+An OpenGL error occured at file: "C:/Users/curyr/Downloads/OpenGL_Praktikum/src/Framework/Assets/ShaderProgram.cpp", line: 47:
+invalid operation
+An OpenGL error occured at file: "C:/Users/curyr/Downloads/OpenGL_Praktikum/src/Framework/Assets/ShaderProgram.cpp", line: 47:
+invalid enum
