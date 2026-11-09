@@ -106,6 +106,8 @@ bool Scene::init()
 		initialRightLegTransform = rightLegTransform;
 		initialLeftUpperArmTransform = leftUpperArmTransform;
 		initialRightUpperArmTransform = rightUpperArmTransform;
+		initialLeftLowerArmTransform = leftLowerArmTransform;
+		initialRightLowerArmTransform = rightLowerArmTransform;
 
         std::cout << "Scene initialization done\n";
         return true;
@@ -176,6 +178,15 @@ void Scene::update(float dt)
 
 	rightUpperArmTransform = initialRightUpperArmTransform;
 	rightUpperArmTransform.rotateAroundPoint(glm::vec3(0.3f, 0.3f, 0.0f),glm::vec3(angle, 0.0f, 0.0f));
+
+	const float leftLowerArmAngle = glm::radians(-30.0f) * std::max(0.0f, std::sin(animationTime * 4.0f));
+	const float rightLowerArmAngle = glm::radians(-30.0f) * std::max(0.0f, -std::sin(animationTime * 4.0f));
+
+	leftLowerArmTransform = initialLeftLowerArmTransform;
+	leftLowerArmTransform.rotateAroundPoint(glm::vec3(0.0f, -0.35f, 0.0f),glm::vec3(leftLowerArmAngle, 0.0f, 0.0f));
+
+	rightLowerArmTransform = initialRightLowerArmTransform;
+	rightLowerArmTransform.rotateAroundPoint(glm::vec3(0.0f, -0.35f, 0.0f),glm::vec3(rightLowerArmAngle, 0.0f, 0.0f));
 }
 
 OpenGLWindow * Scene::getWindow()

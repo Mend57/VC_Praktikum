@@ -52,5 +52,9 @@ private:
 	Transform initialRightLegTransform;
 	Transform initialLeftUpperArmTransform;
 	Transform initialRightUpperArmTransform;
+	Transform initialRightLowerArmTransform;
+	Transform initialLeftLowerArmTransform;
+
+
 };
 
