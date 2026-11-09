@@ -1,10 +1,11 @@
 #pragma once
 
 #include "OpenGLWindow.h"
+#include "Transform.h"
+#include "Cube.h"
 #include <ShaderProgram.h>
 #include <memory>
 #include <AssetManager.h>
-#include "Transform.h"
 
 class Scene
 {
@@ -25,10 +26,31 @@ public:
 	void onFrameBufferResize(int width, int height);
 
 private:
+	void drawRobotPart(const glm::mat4& parentMatrix, Transform& transform);
+	void setRobotInitialScale();
+	void setRobotInitialPosition();
+	void setupBuffers();
+
 	OpenGLWindow* m_window;
 	AssetManager m_assets;
     ShaderProgram* m_shader;
     GLuint vaoID, vboID, iboID;
-	int indicesSize;
+	float animationTime = 0.0f;
+
+	// Transform cubeTransform;
+	Transform robotTransform;
+	Transform torsoTransform;
+	Transform headTransform;
+	Transform leftLegTransform;
+	Transform rightLegTransform;
+	Transform leftUpperArmTransform;
+	Transform leftLowerArmTransform;
+	Transform rightUpperArmTransform;
+	Transform rightLowerArmTransform;
+
+	Transform initialLeftLegTransform;
+	Transform initialRightLegTransform;
+	Transform initialLeftUpperArmTransform;
+	Transform initialRightUpperArmTransform;
 };
 
